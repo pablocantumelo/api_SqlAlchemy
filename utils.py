@@ -9,12 +9,6 @@ def ConsultaPessoa():
     for i in nome:
         print(i.Nome)
 
-    # nome = Pessoas.query.filter_by(Nome='Fabiana')
-    # for p in nome:
-    #     print(p.Nome)
-    # res = Pessoas.query.filter_by(Nome='Fabiana').first()
-    # print(res.Idade)
-
 def AlteraPessoas():
     pessoa = Pessoas.query.filter_by(Nome='Fabiana').first()
     pessoa.Idade = 29
@@ -29,6 +23,6 @@ def ExcluiPessoas(nm):
 if __name__ == '__main__':
     InserePessoas('Pablo')
     ConsultaPessoa()
-    AlteraPessoas()
-    ExcluiPessoas('Pablo')
-    ConsultaPessoa()
+    # AlteraPessoas()
+    # ExcluiPessoas('Fabiana')
+    # ConsultaPessoa()
