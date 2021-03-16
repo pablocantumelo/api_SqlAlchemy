@@ -1,4 +1,4 @@
-from models import Pessoas
+from models import Pessoas, Usuarios
 
 def InserePessoas(nm):
     pessoa = Pessoas(Nome=nm,Idade=40)
@@ -19,10 +19,20 @@ def ExcluiPessoas(nm):
     print(pessoa)
     pessoa.deleta()
 
+def InsereUsuario(login,senha):
+    usuario = Usuarios(login=login, senha=senha)
+    usuario.save()
+
+def ConsultaTodosUsuarios():
+    dados=Usuarios.query.all()
+    print(dados)
 
 if __name__ == '__main__':
-    InserePessoas('Pablo')
-    ConsultaPessoa()
-    # AlteraPessoas()
-    # ExcluiPessoas('Fabiana')
+    # InserePessoas('Pablo')
     # ConsultaPessoa()
+    # AlteraPessoas()
+    # ExcluiPessoas('Pablo')
+    # ConsultaPessoa()
+    # InclusaoColuna('atividades','status','String(10)')
+    # InsereUsuario('fabi','1212')
+    # ConsultaTodosUsuarios()

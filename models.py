@@ -35,6 +35,7 @@ class Atividades(base):
     nome = Column(String(80))
     pessoa_id  = Column(Integer, ForeignKey('pessoas.id'))
     pessoa = relationship("Pessoas")
+    status = Column(String(10))
 
     def __repr__(self):
         return '<Atividades {}>'.format(self.nome)
@@ -47,8 +48,28 @@ class Atividades(base):
         db_session.delete(self)
         db_session.commit()
 
+class Usuarios(base):
+    __tablename__ = 'usuarios'
+    id = Column(Integer,primary_key=True)
+    login = Column(String(20),unique=True)
+    senha = Column(String(20))
+
+    def __rept__(self):
+        return '<usiario {}>'.format(self.login)
+
+    def save(self):
+        db_session.add(self)
+        db_session.commit()
+
+    def deleta(self):
+        db_session.delete(self)
+        db_session.commit()
+
 def iniciar_banco():
     base.metadata.create_all(bind=engine)
+
+def InclusaoColuna(tab,col,tp):
+    engine.execute('alter table {} add column {} String'.format(tab,col,tp))
 
 if __name__ == '__main__':
     iniciar_banco()
