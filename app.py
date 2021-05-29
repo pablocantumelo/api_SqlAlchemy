@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 api = Api(app)
 
+
 # user = {'pablo':'123','cantu':'999'}
 # @auth.verify_password
 # def verificacao(login,senha):
@@ -16,6 +17,7 @@ api = Api(app)
 #     if not (login,senha):
 #         return False
 #     return user.get(login) == senha
+
 
 @auth.verify_password
 def Verificacao(login,senha):
